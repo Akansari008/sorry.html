@@ -1,71 +1,92 @@
-# sorry.html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm Sorry My Love</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #fce4ec, #f8bbd0);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .card {
-            background: white;
-            width: 90%;
-            max-width: 700px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-        h1 {
-            color: #c2185b;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #444;
-        }
-        .heart {
-            font-size: 40px;
-            margin: 20px 0;
-            color: #e91e63;
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #ad1457;
-        }
-        button {
-            margin-top: 25px;
-            padding: 12px 25px;
-            font-size: 16px;
-            border: none;
-            border-radius: 25px;
-            background-color: #e91e63;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        button:hover {
-            background-color: #ad1457;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgive Me Kausar ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    top: 15%;
+}
+
+h1 {
+    font-size: 45px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+p {
+    font-size: 20px;
+    width: 75%;
+    margin: auto;
+    margin-top: 20px;
+    animation: fadeIn 4s ease-in-out;
+}
+
+.buttons {
+    margin-top: 40px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: white;
+    color: #ff4e8a;
+}
+
+#yesBtn:hover {
+    background-color: #ff4e8a;
+    color: white;
+}
+
+#noBtn {
+    background-color: black;
+    color: white;
+    position: absolute;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+</style>
 </head>
 <body>
-    <div class="card">
-        <h1>I'm Truly Sorry ❤️</h1>
-        <div class="heart">💖</div>
-        <p>
+
+<div class="container">
+    <h1>Kausar, Please Forgive Me ❤️</h1>
+    <p>
             My Dearest Wife,<br><br>
             I know I made a mistake and I hurt you. For that, I am deeply sorry.
             You are the most precious person in my life, and seeing you upset
@@ -78,13 +99,42 @@
         </p>
         <p>
             Thank you for loving me, supporting me, and standing beside me.
-            I am blessed to call you my wife.
-        </p>
-        <div class="footer">
-            Forever Yours ❤️<br>
-            Your Loving Husband
-        </div>
-        <button onclick="alert('I love you more than words can say ❤️')">Click for a Special Message</button>
+            I am blessed to call you my wife.    
+    </p>
+    <div class="buttons">
+        <button id="yesBtn" onclick="forgive()">YES 💖</button>
+        <button id="noBtn" onmouseover="moveButton()">NO 😜</button>
     </div>
+</div>
+
+<script>
+function forgive() {
+    alert("Yayyy ❤️ Kausar forgave me! I love you forever 😘");
+}
+
+function moveButton() {
+    var button = document.getElementById("noBtn");
+    var x = Math.random() * (window.innerWidth - 100);
+    var y = Math.random() * (window.innerHeight - 50);
+    button.style.left = x + "px";
+    button.style.top = y + "px";
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
 </body>
 </html>
